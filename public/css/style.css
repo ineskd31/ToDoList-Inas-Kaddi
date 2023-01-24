@@ -77,3 +77,11 @@ button:hover{
     border-radius: 20px;
     font-size: 18px;
 }
+img:hover {
+    background-color: rgba(197, 112, 22, 0.582);
+    border-radius: 20px;
+}
+.SupModif{
+    display: flex;
+    gap: 5px;
+}

@@ -36,11 +36,13 @@ btnAdd.onclick = function (){
 
             }
         })
-
+        
         
         let para = document.createElement("p")
         para.innerText = inputText.value
         divRow.appendChild(para)
+
+        inputText.value = ""
 
         let divSupModif = document.createElement("div")
         divSupModif.classList = "SupModif"
@@ -54,8 +56,50 @@ btnAdd.onclick = function (){
         img2.src = "./public/img/iconmonstr-x-mark-circle-lined-32.png"
         divSupModif.appendChild(img2)
 
+        
 
-        inputText.value = ""
+        img1.addEventListener("click", () =>{
+
+            let btnModif = document.createElement("button")
+            divSupModif.prepend(btnModif)
+            btnModif.innerText = "modif"
+
+            let inputModif = document.createElement("input")
+            inputModif.classList = "input2"
+            divSupModif.prepend(inputModif)
+
+            img1.src = ""
+
+            btnModif.addEventListener("click", () => {
+                para.innerText = inputModif.value
+                btnModif.remove()
+                inputModif.remove()
+
+                img1.src = "./public/img/iconmonstr-pen-16-32 (1).png"
+            })
+        })
+
+        img2.addEventListener("click", () => {
+            let btnYes = document.createElement("button")
+            divSupModif.appendChild(btnYes)
+            btnYes.innerText = "YES"
+
+            let btnNo = document.createElement("button")
+            divSupModif.appendChild(btnNo)
+            btnNo.innerText = "NO"
+
+            img2.src = ""
+            
+            btnYes.addEventListener("click", () =>{
+                divRow.remove()
+            })
+            btnNo.addEventListener("click", () => {
+                btnYes.remove()
+                btnNo.remove()
+                img2.src = "./public/img/iconmonstr-x-mark-circle-lined-32.png"
+            })
+        })
+        
     }
 }
 
@@ -93,3 +137,5 @@ btnAll.addEventListener("click", () => {
         taches[index].classList.remove("none");
     }
 })
+
+
